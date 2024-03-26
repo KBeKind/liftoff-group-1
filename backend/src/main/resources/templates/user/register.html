@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<form method="post">
+    <div>
+        <label>Name
+            <input th:field="${registerDTO.name}"/>
+        </label>
+    </div>
+
+    <div>
+        <label>email
+            <input th:field="${registerDTO.email}"/>
+        </label>
+    </div>
+    <div>
+        <label>Username
+            <input th:field="${registerDTO.username}" />
+        </label>
+        <p th:errors="${registerDTO.username}"></p>
+    </div>
+    <div>
+        <label>Password
+            <input th:field="${registerDTO.password}" type="password" />
+        </label>
+        <p th:errors="${registerDTO.password}"></p>
+    </div>
+    <div>
+        <label>Verify Password
+            <input th:field="${registerDTO.verifyPassword}" type="password" />
+        </label>
+    </div>
+
+
+    <input type="submit" class="btn btn-primary" value="Register" />
+</form>
+
+<p>Have an account? <a href="/user/login">Login.</a></p>
+<p>Back to Marketplace? <a href="/">Here</a></p>
+
+</body>
+</html>

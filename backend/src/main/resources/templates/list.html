@@ -3,7 +3,8 @@
 <head th:replace="~{fragments :: head}"></head>
 
 <body>
-    <div th:replace="~{fragments :: page-header}"></div>
+<th:block th:unless="${id.length()}"><div th:replace="~{fragments :: page-header}"></div></th:block>
+<th:block th:if="${id.length()}"><div th:replace="~{fragments :: page-header-logged-in}"></div></th:block>
 
     <form th:action="@{/list}" method = "post">
         <label> Sort by:
@@ -37,12 +38,17 @@
                 <th th:text = "${product.category}"></th>
                 <th th:text = "'$' + ${product.price}"></th>
                 <th>
-                    <form method="post" th:action="@{/addToShoppingCart}">
+                    <div th:if="${id.length()}">
+                        <form method="post" th:action="@{/addToShoppingCart}">
                             <p style="visibility: hidden">
                                 <input type="text" th:value="${product.id}" name="shoppingCartId" id="shoppingCartId" />
                             </p>
-                        <button type="submit" >Buy</button>
-                    </form>
+                            <button type="submit" >Buy</button>
+                        </form>
+                    </div>
+
+                    <div th:unless="${id.length()}" ><p><a href="/user/login">Sign in</a> to buy</p></div>
+
                 </th>
 
         </tr>

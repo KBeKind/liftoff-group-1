@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="~{fragments :: head}"></head>
+
+<body>
+
+<h1>User Login</h1>
+<form method="post">
+    <div>
+        <label th:for="username">Username
+            <input th:field="${loginDTO.username}">
+        </label>
+<!--        <p class="error" th:errors="${loginDTO.username}"></p>-->
+    </div>
+    <div >
+        <label>Password
+            <input th:field="${loginDTO.password}" type="password">
+        </label>
+<!--        <p class="error" th:errors="${loginFormDTO.password}"></p>-->
+    </div>
+
+    <input type="submit" value="Log In" />
+</form>
+
+<p>Don't have an account? <a href="/user/register">Register for one.</a></p>
+<p>Back to Marketplace? <a href="/">Here</a></p>
+
+
+</body>
+</html>
