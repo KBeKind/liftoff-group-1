@@ -98,8 +98,11 @@ const page = () => {
     }
   }
 
-
-
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    localStorage.setItem('productId', e.target.id);
+    window.location = '/update-post';
+  }
 
   return (<Layout>
     {domLoaded && (
@@ -137,7 +140,11 @@ const page = () => {
                 <th style={{ width: 200 }}>
                   Price
                 </th>
-                <th>Remove</th>
+
+                <th style={{ width: 200 }}>
+                  Actions
+                </th>
+
               </tr>
 
             </thead>
@@ -155,6 +162,11 @@ const page = () => {
                         <button type="submit" style={{ backgroundColor: "red", color: "white", width: 15, verticalAlign: "middle" }}>x </button>
                       </form>
                     </th>
+
+                    <th><form id={product.id} onSubmit={handleUpdate}>
+                      <button type="sumbit">Update</button></form>
+                    </th>
+
 
                   </tr>
 
