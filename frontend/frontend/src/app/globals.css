@@ -362,3 +362,6 @@ thead {
   transform: translateY(5px);
 }
 
+.apiSearchBar {
+  margin-top: 70px;
+}

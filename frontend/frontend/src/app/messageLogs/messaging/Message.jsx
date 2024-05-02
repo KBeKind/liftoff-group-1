@@ -9,15 +9,9 @@ const Message = () => {
     const fetchedUser = searchParams.get('user');
     const fetchedOtherUser = searchParams.get('otherUser');
     const [message, setMessage] = useState({message: '', user: ''})
-    const [log, setLog] = useState([]);
     const [data, setData] = useState([]);
+
     const payload = {
-        user: fetchedUser,
-        otherUser: fetchedOtherUser
-    }
-
-
-    const payload2 = {
         message: message.message,
         user: fetchedUser,
         otherUser: fetchedOtherUser
@@ -35,7 +29,7 @@ const Message = () => {
         const AuthStr = 'Bearer '.concat(token);
         const response = await axios.post(
             'http://localhost:8080/message/create',
-            payload2,
+            payload,
             {
                 headers: {
                     accept: "*/*",

@@ -20,9 +20,9 @@ const page = (prop) => {
                 'X-RapidAPI-Host': 'real-time-product-search.p.rapidapi.com'
             }
         };
-
         try {
             const response = await axios.request(options);
+            console.log(response)
             const priceArray = [];
             response.data.data.map((item) => {
                 if (item.typical_price_range !== null) {
@@ -52,17 +52,14 @@ const page = (prop) => {
                 total += item
             }
             output = total / priceArray.length
-            console.log(output);
+            return output;
         } catch (error) {
             console.error(error);
         }
     }
-    loadData();
+    
 
-    return (
-        <div></div>
-
-    )
+    return loadData()
 }
 
 export default page;
