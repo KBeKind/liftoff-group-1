@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-
+import Layout from '../../../layout'
 const page = () => {
     const [confirm, setConfirm] = useState(false);
     const searchParams = useSearchParams();
@@ -38,17 +38,19 @@ const page = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} id="updateMessageForm">
-        <p>Confirm Delete</p>
-        <input 
-            type="checkbox"
-            name="message"
-            onClick={handleClick}
-            checked={confirm}
-            onChange={handleClick}
-        />
-        <button type="submit">Submit</button>
-    </form>
+    <Layout>
+        <form onSubmit={handleSubmit} id="updateMessageForm">
+            <p>Confirm Delete</p>
+            <input 
+                type="checkbox"
+                name="message"
+                onClick={handleClick}
+                checked={confirm}
+                onChange={handleClick}
+            />
+            <button type="submit">Submit</button>
+        </form>
+    </Layout>
     )
 }
 

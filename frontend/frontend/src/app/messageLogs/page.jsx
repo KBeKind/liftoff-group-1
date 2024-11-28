@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {newLog} from '../actions'
 import Link from 'next/link'
+import Layout from '../layout'
 
 const page = () => {
     let isLoggedIn;
@@ -60,7 +61,7 @@ const page = () => {
 
 
   return (
-    <div>
+    <Layout>
         { isLoggedIn ? 
             <div>
                 <p color="red">Please log in to continue</p>
@@ -111,7 +112,7 @@ const page = () => {
         <form onSubmit={handleSubmitNewLog}>
             <button type="submit" style={{color: "red"}}>Create New Log</button>
         </form>
-    </div>
+    </Layout>
   )
 }
 

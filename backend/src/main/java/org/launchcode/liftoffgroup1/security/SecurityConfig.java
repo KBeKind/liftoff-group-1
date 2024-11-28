@@ -59,8 +59,8 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
 //                                .anyRequest().permitAll()
         )
-//                .exceptionHandling((exception)-> exception.
-//                        authenticationEntryPoint(authEntryPoint))
+                .exceptionHandling((exception)-> exception.
+                        authenticationEntryPoint(authEntryPoint))
 
                 .formLogin(
                         AbstractHttpConfigurer::disable
